@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-BOM</title>
+</head>
+<body>
+    <h1>Tortilla de papas</h1>
+    <button id="boton">Pulsame</button>
+    <div id="contenido">
+        <p class="principal">Cortar los ingredientes: las papas en cubos, el ajo en láminas y la cebolla en Juliana.</p>
+        <p>Freír las papas: por unos 10 minutos, antes de retirarlas, sumar el ajo para que tomen sabor. Reservar las papas y el ajo.</p>
+        <p>Freír las cebollas</p>
+        <p>Mezclar: en un bol colocar las papas, ajo y cebolla fritas más los huevos batidos, salpimentar.</p>
+        <p>Cocer la tortilla: en una sartén caliente con base de aceite, volcar la mezcla y cocer hasta que se despegue de la base. Dar vuelta y cocer hasta dorar.</p>
+        <p>SER FELIZ</p>
+    </div>
+
+    <script>
+        //DOM: Document Object Model: Acceso a los objeto de nuestro HTML y CSS. Puente de comunicacion
+        //BOM: Browser Objetc Model: Acceso a todo el HTML. Principal Metodo: Window
+        //Propiedades y metodos del DOM:
+
+        var boton = document.getElementById("boton");
+
+        var todosLosParrafos = document.getElementsByTagName("p");
+        //var parrafosPorClase = document.getElementsByClassName("principal")[0]
+        
+
+        //boton.addEventListener("click", () => console.log(parrafosPorClase)) //trae el contenido completo, hay que agregar el elemento que se busca y el metodo text content
+      
+        var foto = document.createElement("img")
+        foto.src = "https://placekitten.com/200/200";
+        foto.name = "foto1.jpg";
+        foto.width = 200; 
+        //document.body.appendChild(foto) //se pueden crear elementos html como una foto
+
+        //Propiedades del BOM: Objeto Window, se pueden usar sus metodos sin indicar window
+
+        window.innerHeight //conocer el alto
+        window.innerWidth  //conocer el ancho
+        
+        var principal = document.getElementsByClassName("principal")[0];
+
+        localStorage.setItem("contenido", "codigo y mate es una buena combinacion") //recibe dos datos: campo y contenido. Localstorage almacena valores que no se envian al servidor
+        
+            boton.addEventListener("click", function () { //reemplaza el contenido de la clase principal por el contenido de local storage
+            var contenido = localStorage.getItem("contenido");
+            principal.innerHTML = contenido
+        })
+
+
+
+
+    </script>
+</body>
+</html>
